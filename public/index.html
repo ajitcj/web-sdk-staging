@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Web SDK"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -24,9 +24,25 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Web SDK Staging</title>
   </head>
   <body>
+    <script async="" id="onedirect-messaging-sdk" src="http://onedirect.s3-ap-southeast-1.amazonaws.com/messaging/web-sdk/staging/od-messaging.init.v1.0.js"></script>
+    <script>
+          window.onedirectSettings = {
+                apiKey: 'NjE4MV8xNTUxOTM5MDU3MTg4X1ZJQkVS',
+            }
+    </script>
+    <script>
+
+		window.od = {}; var mc = function() { mc.c(arguments);}
+		mc.q = []; mc.c=function(args) { mc.q.push(args)};
+		window.od.messenger = mc;
+
+    </script>
+    <script>
+      !function (e, s, n, t, a) { el = s.createElement(n), p = s.getElementsByTagName(n)[0], el.async = 1, el.id = "onedirect-messaging-sdk", el.src = "https://onedirect.s3-ap-southeast-1.amazonaws.com/messaging/web-sdk/staging/od-messaging.init.v1.0.min.js", p.parentNode.insertBefore(el, p) }(window, document, "script");
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
