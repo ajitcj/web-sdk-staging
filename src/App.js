@@ -24,24 +24,38 @@ export default class App extends Component {
     gsap.fromTo(".layer6", {x: -200, y: 50}, {duration: 25, x: 100, y: 300, repeat: -1, yoyo:true});
   }
 
-  mouseMoved() {
-
+  clearLocalStorage() {
+    window.localStorage.clear();
+    window.location.reload();
+  }
+  openSDK() {
+    window.od.messenger("open");
+  }
+  closeSDK() {
+    window.od.messenger("close");
   }
 
   render() {
     return (
-      <div onMouseMove={()=>{this.mouseMoved()}} className='container'>
-        <img className='img layer1' src={Layer1} alt='img'></img>
-        <img className='img layer2' src={Layer2} alt='img'></img>
-        <img className='img layer3' src={Layer3} alt='img'></img>
-        <img className='img layer4' src={Layer4} alt='img'></img>
-        <img className='img layer5' src={Layer5} alt='img'></img>
-        <img className='img layer6' src={Layer6} alt='img'></img>
-        <img className='img layer7' src={Layer7} alt='img'></img>
-        <img className='img layer8' src={Layer8} alt='img'></img>
-        <img className='img layer9' src={Layer9} alt='img'></img>
-        <img className='img layer10' src={Layer10} alt='img'></img>
-      </div>
+      <React.Fragment>
+        <div className='container'>
+          <img className='img layer1' src={Layer1} alt='img'></img>
+          <img className='img layer2' src={Layer2} alt='img'></img>
+          <img className='img layer3' src={Layer3} alt='img'></img>
+          <img className='img layer4' src={Layer4} alt='img'></img>
+          <img className='img layer5' src={Layer5} alt='img'></img>
+          <img className='img layer6' src={Layer6} alt='img'></img>
+          <img className='img layer7' src={Layer7} alt='img'></img>
+          <img className='img layer8' src={Layer8} alt='img'></img>
+          <img className='img layer9' src={Layer9} alt='img'></img>
+          <img className='img layer10' src={Layer10} alt='img'></img>
+        </div>
+        <div className='action-buttons'>
+          <button type="button" onClick={()=>this.clearLocalStorage()}>Open New Session</button>
+          <button type="button" onClick={()=>this.openSDK()}>Open SDK</button>
+          <button type="button" onClick={()=>this.closeSDK()}>Close SDK</button>
+        </div>
+      </React.Fragment>
     )
   }
 }
