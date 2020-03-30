@@ -85,11 +85,11 @@
       <img class='img layer9' src='./assets/8 Stars.png' alt='img'></img>
       <img class='img layer10' src='./assets/8 Stars2.png' alt='img'></img>
     </div>
-    <div class='action-buttons'>
+<!--     <div class='action-buttons'>
       <button type="button" onclick='clearLocalStorage()'>Open New Session</button>
       <button type="button" onclick='openSDK()'>Open SDK</button>
       <button type="button" onclick='closeSDK()'>Close SDK</button>
-    </div>
+    </div> -->
     <script>
       gsap.fromTo(".layer1", {x: -10}, {duration: 15, x: 50, repeat: -1, yoyo:true});
       gsap.fromTo(".layer2", {x: 50}, {duration: 15, x: -10, repeat: -1, yoyo:true});
@@ -110,7 +110,7 @@
         window.od.messenger("close");
       }
     </script>
-    <script async="" id="onedirect-messaging-sdk" src="http://onedirect.s3-ap-southeast-1.amazonaws.com/messaging/web-sdk/staging/international-number-support/od-messaging.init.v1.0.js"></script>
+<!--     <script async="" id="onedirect-messaging-sdk" src="http://onedirect.s3-ap-southeast-1.amazonaws.com/messaging/web-sdk/staging/international-number-support/od-messaging.init.v1.0.js"></script>
     <script>
           window.onedirectSettings = {
                 apiKey: 'ODE2Ml8xNTgxMzI1MDMyMTk3XzQ=',
@@ -125,7 +125,30 @@
     </script>
     <script>
       !function (e, s, n, t, a) { el = s.createElement(n), p = s.getElementsByTagName(n)[0], el.async = 1, el.id = "onedirect-messaging-sdk", el.src = "https://onedirect.s3-ap-southeast-1.amazonaws.com/messaging/web-sdk/staging/international-number-support/od-messaging.init.v1.0.min.js", p.parentNode.insertBefore(el, p) }(window, document, "script");
-    </script>
+    </script> -->
+
+<script>
+  window.onedirectSettings = {
+    apiKey: 'ODIwNV8xNTg1NTUwOTUyOTM1XzQ=',
+  }
+</script>
+
+<script>
+  window.od = {}; var mc = function() { mc.c(arguments);}
+  mc.q = []; mc.c=function(args) { mc.q.push(args)};
+  window.od.messenger = mc;
+</script>
+
+<script>
+  fetch('https://msg.onedirect.in/kong/mgateway/public/v1/sdk-version?brandHash=ODIwNV8xNTg1NTUwOTUyOTM1XzQ=&channelId=1')
+    .then((r) => r.json())
+    .then((r) => {
+      !function (e, s, n, t, a) { el = s.createElement(n), p = s.getElementsByTagName(n)[0], el.async = 1, el.id = "onedirect-messaging-sdk", el.src = `https://s3-ap-southeast-1.amazonaws.com/onedirect/messaging/web-sdk/production/${r.version}/od-messaging.init.v1.0.min.js`, p.parentNode.insertBefore(el, p) }(window, document, "script");
+    }).catch((error) => {
+      console.log(error)
+    })
+</script>
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
   </body>
 </html>
