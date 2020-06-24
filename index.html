@@ -91,11 +91,11 @@
       <img class='img layer9' src='./assets/8 Stars.png' alt='img'></img>
       <img class='img layer10' src='./assets/8 Stars2.png' alt='img'></img>
     </div>
-<!--     <div class='action-buttons'>
+    <div class='action-buttons'>
       <button type="button" onclick='clearLocalStorage()'>Open New Session</button>
-      <button type="button" onclick='openSDK()'>Open SDK</button>
-      <button type="button" onclick='closeSDK()'>Close SDK</button>
-    </div> -->
+      <button type="button" onclick='openSDK()'>Init SDK</button>
+      <button type="button" onclick='closeSDK()'>Shutdown SDK</button>
+    </div>
     <script>
       gsap.fromTo(".layer1", {x: -10}, {duration: 15, x: 50, repeat: -1, yoyo:true});
       gsap.fromTo(".layer2", {x: 50}, {duration: 15, x: -10, repeat: -1, yoyo:true});
@@ -110,10 +110,10 @@
         window.location.reload();
       }
       const openSDK = () => {
-        window.od.messenger("open");
+        window.od.messenger("init");
       }
       const closeSDK = () => {
-        window.od.messenger("close");
+        window.od.messenger("shutdown");
       }
     </script>
     <script async="" id="onedirect-messaging-sdk" src="http://onedirect.s3-ap-southeast-1.amazonaws.com/messaging/web-sdk/staging/devBuild/od-messaging.init.v1.0.js"></script>
